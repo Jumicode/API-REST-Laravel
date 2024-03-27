@@ -9,4 +9,7 @@ class Note extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+
+    protected $hiden = ['created_at','updated_at'];
 }
