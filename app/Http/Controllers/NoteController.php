@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Note;
-
+use App\Http\Requests\NoteRequest;
 class NoteController extends Controller
 {
     /**
@@ -22,9 +22,12 @@ class NoteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(NoteRequest $request)
     {
-        //
+    Note::create($request->all());
+    return response()->json([
+        'success' => true
+    ], 201);
     }
 
     /**
